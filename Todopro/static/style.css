@@ -1,0 +1,128 @@
+body {
+  margin: 10px auto;
+  min-width: 250px;
+  max-width: 50%;
+  background:linear-gradient(to right,#3f5efb,#fc466b);
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+   /* make the list items unselectable */
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+ul li:nth-child(odd) {
+  background: #3f5efb;;
+}
+/* Darker background-color on hover */
+ul li:hover {
+  background: #fc466b;
+}
+
+ .header {
+  background-color: #fc466b;
+  padding: 30px 40px;
+  color:whitesmoke;
+  text-align: center;
+}
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background:#3f5efb;
+  color:whitesmoke;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  font:bold ;
+}
+.addBtn:hover {
+  background-color: #3f5efb;
+}
+.editbtn{
+  padding: 10px ;
+  width: 10%;
+  background:#3f5efb;
+  color:whitesmoke;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  font:bold ;
+
+
+}
+.deletebtn{
+  padding: 10px ;
+  width: 15%;
+  background:#3f5efb;
+  color:whitesmoke;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  font:bold ;
+}
+.undo{
+  padding: 10px ;
+  width: 15%;
+  background:#3f5efb;
+  color:whitesmoke;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  font:bold ;
+}
+.done{
+  padding: 10px ;
+  width: 15%;
+  background:#3f5efb;
+  color:whitesmoke;
+  text-align: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  font:bold ;
+}
+a{
+  
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+ 

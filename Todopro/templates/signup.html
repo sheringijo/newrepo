@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registeratoin</title>
+    <link rel="stylesheet" href='{% static "register.css" %}'>
+    <script src="{%static 'js/app.js'%}"></script>
+</head>
+<body>
+    <div calss="container">
+    <div class="reg-form">
+        <h1>Registeratoin</h1>
+        <form  onsubmit="return validate()" action="signup" method="POST">
+        {% csrf_token %}
+            <p>username</p>
+            <input type="text"  name="username" placeholder="username" id="user-id">
+            <p>Email</p>
+            <input type="email" name="email" placeholder="email" id="mail-id"> 
+            <p>Password</p>
+            <input type="password" name="password"  placeholder="password" id="pass-id"> 
+            <p>confirm password</p>
+            <input type="password" name="password1" placeholder="confirmpassword" id="cpass-id"> 
+            <button type="submit">Signup</button> 
+        </form>
+    <div class="msg">
+        {% for message in messages %}
+        <h2>{{message}}</h2>
+        {% endfor %}
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+
+

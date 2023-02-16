@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href='{% static "login.css" %}'>
+    <script src="{%static 'js/log.js'%}"></script>
+</head>
+<body>
+    <div class="container">
+    <div class="login-form">
+        <h1>Login</h1>
+        <form onsubmit="return logValidate()" action=""  method="POST" >
+        {% csrf_token %}
+            <p>User Name</p> 
+            <input type="text"  name="username" id="uid" placeholder="username">
+            <p>password</p>
+            <input type="password" name="password" id="pid" placeholder="password"> 
+            <button type="submit">LOGIN</button> 
+            <p>Don't hava an account?
+            <a href="signup">Signup</a></p>
+
+    </form>
+    <div class="msg">
+            
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+    </div>
+    </div>   
+</body>
+</html>
+
+

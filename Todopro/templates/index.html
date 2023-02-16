@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href='{% static "style.css" %}'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{%static 'js/task.js'%}"></script>
+</head>
+<body>
+
+  <div class="header">
+  <h5>Welcome {{user.username}}</h5>
+    <h1>My Todo</h1>
+    <div class="userin">
+    <form onsubmit="return taskValidate()"  action="" method="POST">
+        {% csrf_token %}   
+        <input type="text" id="title" name="title" placeholder="Enter your task">
+        <input type="hidden" name="task-id" id="task-id">
+        <button type="submit" class="addBtn">Add</button>
+    </form>
+  </div>
+  </div>
+    <ul id="todoitem">
+        {% for i in name %}
+            <li class="checked">
+              {% if i.isCompleted == True %}
+              <strike>
+              {{i.title}}
+              </strike>
+              <button class="undo"><a href="/action?id={{i.id}}&&action=undo">UNDO</a></button>
+              <button class="editbtn" data-id="{{i.id}}" data-title="{{i.title}}">Edit</button>
+              <button class="deletebtn" ><a href="/action?id={{i.id}}&&action=delete">DELETE</a></button>
+              {% else %}
+              {{i.title}}
+              <button class="done"><a href="/action?id={{i.id}}&&action=done">DONE</a></button>
+              <button class="editbtn" data-id="{{i.id}}" data-title="{{i.title}}">Edit</button>
+              <button class="deletebtn" ><a href="/action?id={{i.id}}&&action=delete">DELETE</a></button>
+              {% endif %}
+            </li>      
+        {% endfor %}
+       </ul>
+    </div>  
+     {% if user.is_authenticated %}
+        
+      <a href="signout">Logout</a>
+
+    <div class="msg">
+            
+      {% for message in messages %}
+      <h3>{{message}}</h3>
+      {% endfor %}
+      {% endif %}
+  </div> 
+
+    <script>
+      $(function (){
+          $('#task-id').val("");
+          $('.editbtn').click(function (){
+              var task_id = $(this).attr("data-id")
+              var task_title = $(this).attr("data-title")
+              $('#title').val(task_title);
+              $('#task-id').val(task_id);
+              $('.addBtn').html('Update');
+          });
+      })
+  </script>
+</body>
+</html>
